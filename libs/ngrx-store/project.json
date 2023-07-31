@@ -1,0 +1,33 @@
+{
+  "name": "@ct-spy/ngrx-store",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ngrx-store/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ngrx-store",
+        "main": "libs/ngrx-store/src/index.ts",
+        "tsConfig": "libs/ngrx-store/tsconfig.lib.json",
+        "assets": ["libs/ngrx-store/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs ngrx-store {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/ngrx-store/**/*.ts",
+          "libs/ngrx-store/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
