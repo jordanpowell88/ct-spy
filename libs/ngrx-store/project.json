@@ -1,5 +1,5 @@
 {
-  "name": "@ct-spy/ngrx-store",
+  "name": "ngrx-store",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ngrx-store/src",
   "projectType": "library",

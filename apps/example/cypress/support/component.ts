@@ -18,7 +18,7 @@ import { mount } from 'cypress/angular';
 import { provideState, provideStore } from '@ngrx/store';
 import { countFeature } from '../../src/app/+state/count/count.reducer';
 import './commands';
-import { createStoreSpy } from '@ct-spy/ngrx-store';
+import '@ct-spy/ngrx-store';
 
 // add component testing only related command here, such as mount
 declare global {
@@ -27,14 +27,11 @@ declare global {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface Chainable<Subject> {
       mount: typeof mount;
-      createStoreSpy: typeof createStoreSpy;
     }
   }
 }
 
 type MountParams = Parameters<typeof mount>;
-
-Cypress.Commands.add('createStoreSpy', { prevSubject: true }, createStoreSpy);
 
 Cypress.Commands.add(
   'mount',
