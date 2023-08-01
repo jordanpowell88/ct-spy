@@ -1,1 +1,1 @@
-export { createStoreSpy } from './lib/ngrx-store';
+export { createStoreSpy } from './lib/support';

@@ -1,10 +1,9 @@
-import { mount, MountResponse } from 'cypress/angular';
 import { Store } from '@ngrx/store';
+import { MountResponse, mount } from 'cypress/angular';
 
-type MountParams = Parameters<typeof mount>;
 export function createStoreSpy<T>(
-  componentResponse?: MountResponse<MountParams[0]>
-): Cypress.Chainable<MountResponse<MountParams[0]> | undefined> {
+  componentResponse?: MountResponse<Parameters<typeof mount>[0]>
+): Cypress.Chainable<MountResponse<Parameters<typeof mount>[0]> | undefined> {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   const { store } = componentResponse.component;
